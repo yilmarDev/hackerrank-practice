@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <script>
+        let n = 5;
+        let queries = [[1, 2, 100], [2, 5, 100],  [3, 4, 100]]
+
+        function arrayManipulation(n, queries) {
+            let arr = new Array(n+1).fill(0);
+            console.log(arr);
+            let temp = 0;
+            let maximus = 0;
+
+            queries.forEach( (dataQ) => {
+                temp = 0
+                arr.forEach((dataA, indexA) => {
+                    if(indexA >= dataQ[0] && indexA <= dataQ[1]){
+                        // temp = dataA + dataQ[2];
+                        // arr.splice(indexA, 1, temp);
+                        
+                        dataA += dataQ[2];
+
+                        if(temp > maximus){
+                            maximus = temp;
+                        }
+                    }
+                });
+            });
+
+            return maximus;
+        }
+        console.log(arrayManipulation(n, queries));
+    </script>
+    
+</body>
+</html>

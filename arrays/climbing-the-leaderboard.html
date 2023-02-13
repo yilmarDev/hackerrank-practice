@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Climbing the leaderboard</title>
+</head>
+<body>
+    <script>
+        const ranked = [100, 100, 50, 40, 40, 20, 10];
+        const player = [5, 25, 50, 120];
+
+        function climbingLeaderboard(ranked, player) {
+            const scores = Array.from(new Set(ranked));
+            const playerScores = [];
+
+            console.log(playerScores);
+
+            for(const score of player) {
+                while (scores && score >= scores[scores.length - 1])
+                    scores.pop();
+                playerScores.push(scores.length +1);
+            }
+
+            return playerScores;
+        }
+
+        console.log('Resultado final: ', climbingLeaderboard(ranked, player));
+    </script>
+</body>
+</html>

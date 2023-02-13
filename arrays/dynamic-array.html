@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamic Arry</title>
+</head>
+<body>
+    <script>
+        const n = 2;
+        const queries = [
+            [1,0,5],
+            [1,1,7],
+            [1,0,3],
+            [2,1,0],
+            [2,1,1],
+        ];
+        
+        function dynamicArray(n, queries) {
+            let lastAnswer = 0;
+            let answersArr = [];
+            let arr = [];
+            
+            for (let i = 0; i < n; i++) arr.push([]);
+            
+            for (let j = 0; j < queries.length; j++) {
+                let x = queries[j][1];
+                let y = queries[j][2];                
+                let idx = (x ^ lastAnswer) % n;
+
+                if(queries[j][0] === 1)
+                    arr[idx].push(y);        
+                else if(queries[j][0] === 2) {
+                    lastAnswer = arr[idx][y % arr[idx].length];
+                    answersArr.push(lastAnswer);
+                }
+            }
+            return answersArr;        
+        }
+
+        console.log(dynamicArray(n, queries));
+    </script>
+</body>
+</html>

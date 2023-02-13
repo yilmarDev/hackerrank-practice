@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kangaroo</title>
+</head>
+<body>
+    <script>
+        let x1 = 0;
+        let v1 = 2;
+        let x2 = 5;
+        let v2 = 3;
+
+        function kangaroo(x1, v1, x2, v2) {
+            let avrInt = parseInt((x1 - x2)/(v2 - v1));
+            let avrFloat = (x1 - x2)/(v2 - v1);
+
+            console.log('Entero: ', avrInt);
+            console.log('Decimal: ', avrInt);
+            
+            if(avrInt > 0 && (avrFloat - avrInt) == 0) return 'YES';
+            else return 'NO';    
+        }
+
+        console.log(kangaroo(x1, v1, x2, v2));
+    </script>
+</body>
+</html>
