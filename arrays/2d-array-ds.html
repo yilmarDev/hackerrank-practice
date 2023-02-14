@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2D - Array DS - hourglasses</title>
+</head>
+<body>
+    <h1>2D - Array DS - hourglasses</h1>
+    <p>
+        <a href="https://www.hackerrank.com/challenges/2d-array/problem?isFullScreen=true">Ejercicio en Hackerrank</a>
+    </p>
+    <script>
+        const arr = [
+            [1,1,1,0,0,0],
+            [0,1,0,0,0,0],
+            [1,1,1,0,0,0],
+            [0,0,2,4,4,0],
+            [0,0,0,2,0,0],
+            [0,0,1,2,4,0]
+        ];
+
+        function hourglassSum(arr) {
+            let hourglasses = [];
+            for(let i = 0; i < 4; i++) {
+                for(let j = 0; j < 4; j++) {
+                    let tempHourglass = 
+                        arr[i][j] + arr[i][j+1] + arr[i][j+2] + 
+                        arr[i+1][j+1] + 
+                        arr[i+2][j] + arr[i+2][j+1] + arr[i+2][j+2];
+                    hourglasses.push(tempHourglass);
+                }
+            }
+            return Math.max(...hourglasses);
+        }
+
+        console.log(hourglassSum(arr));
+    </script>
+</body>
+</html>
